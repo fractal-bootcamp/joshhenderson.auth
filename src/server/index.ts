@@ -1,4 +1,4 @@
-import { Response } from "express"
+import { Request, Response } from "express"
 import cors from "cors"
 
 
@@ -9,8 +9,13 @@ const port = 3000
 
 app.use(cors())
 
-app.get('/', (_req: Request, res: Response) => {
-    res.send('Hello World!')
+app.get('/', (req: Request, res: Response) => {
+    if (req.headers.header1 === "token") {
+        res.send('Hello World!')
+    } else {
+        res.send("nope!")
+    }
+
 })
 
 app.listen(port, () => {

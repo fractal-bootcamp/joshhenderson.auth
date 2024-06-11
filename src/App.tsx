@@ -3,8 +3,15 @@ import axios from 'axios'
 
 console.log("app is working")
 
+const config = {
+  headers: {
+    header1: "token",
+    header2: "token",
+  }
+}
+
 const apiCall = () => {
-  axios.get('http://localhost:3000').then((data) => {
+  axios.get('http://localhost:3000', config).then((data) => {
     console.log(data)
   })
 }
